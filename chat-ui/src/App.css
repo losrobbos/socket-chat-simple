@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#chat-area {
+  height: 70vh;
+  overflow: auto;
+}
+
+#chat-area, #message-send {
+  text-align: initial;
+  width: 500px;
+  border: 1px solid #ccc;
+}
+
+#chat-area label {
+  display: inline-block;
+  width: 120px;
+}
+
+.chat-msg {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  /* box-shadow: 1px 1px 1px #ccc; */
+}
+
+#message-send {
+  display: flex;
+  justify-content: space-between;
+}
+
+#message-send input {
+  background: transparent;
+  padding: 8px;
+  border-radius: 3px;
+  flex-grow: 1;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#message-send button {
+  background: lightsteelblue;
+}
+
+#message-send button:hover {
+  opacity: 0.7;
+}

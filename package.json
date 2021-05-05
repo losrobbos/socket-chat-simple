@@ -1,0 +1,26 @@
+{
+  "name": "chat-simple",
+  "version": "1.0.0",
+  "description": "## Snippets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "node server.js",
+    "dev": "nodemon server.js",
+    "ui": "npm start --prefix chat-ui",
+    "start": "concurrently 'npm run dev' 'npm run ui' "
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/socket.io": "^2.1.11",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^3.1.2"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
