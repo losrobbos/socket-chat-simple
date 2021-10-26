@@ -45,7 +45,7 @@ useEffect(() => {
 }, []);
 
 // register socket message listener
-// if listener depends on any state data 
+// if listener depends on any state data => re-create listener every time to prevent stale closure (=> with outdated state) 
 useEffect(() => {
 
   socketRef.current.on("message", msg => {
