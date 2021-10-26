@@ -30,7 +30,11 @@ function App() {
     // initialize socket connection on load
     socketRef.current = socketIo( MESSAGE_SERVER_URL )
 
-
+    // on browser tab close or page reload => close socket connection pleaaaase
+    // otherwise the browser will open several connections in parallel
+    return () => {
+      socketRef.current && socketRef.current.disconnect()
+    }
   }, [])
 
   // on every change of history 
