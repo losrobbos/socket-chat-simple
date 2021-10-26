@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 4001;
 const httpServer = app.listen( PORT );
 
   // configure for usage from React
-const io = new Server( httPserver, {
+const io = new Server( httpServer, {
   cors: { // configure CORS
     origin: "*" 
   }
