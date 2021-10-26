@@ -9,8 +9,8 @@ const MESSAGE_SERVER_URL = process.env.REACT_APP_MESSAGE_SERVER_URL
 function App() {
 
   // state vs refs FIGHT
-  // state => RE-RENDERS !
-  // ref => do NOT trigger RE-RENDER !
+  // state => triggers RE-RENDER !
+  // ref => does NOT trigger RE-RENDER !
 
   const socketRef = useRef() // global variables
 
