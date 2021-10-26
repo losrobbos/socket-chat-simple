@@ -36,15 +36,25 @@ import socketIOClient from "socket.io-client";
 const MESSAGE_SERVER_URL = "http://localhost:5000";
 
 // connect on load...
-useEffect(() => {
-  const socket = socketIOClient(MESSAGE_SERVER_URL);
-  // const socket = socketIo(MESSAGE_SERVER_URL, { transports: ['websocket'] }) 
-    // this works even without CORS set in backend!
+const socketRef = useRef()
 
-  socket.on("helloFromApi", data => {
-    setResponse(data); // push response data into state
-  });
+useEffect(() => {
+  socketRef.current = socketIOClient(MESSAGE_SERVER_URL);
+
+  return () => socketRef.current && socketRef.current.disconnect() // close socket when browser tab is closed
 }, []);
+
+// register socket message listener
+// if listener depends on any state data 
+useEffect(() => {
+
+  socketRef.current.on("message", msg => {
+    setMessages([...messages, msg]); // push response data into state
+  });
+
+  return () => socketRef.current && socketRef.current.off("message") // remove event listener after any messages state update and re-create it
+
+}, [messages])
 
 ```
 
